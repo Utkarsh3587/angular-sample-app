@@ -8,7 +8,7 @@ global.SRC_DIR = settings.path.resolve(__dirname);
 
 global.REDIRECT_OPTIONS = {
   root: __dirname + '/public',
-  dotfiles: 'deny',
+  dotfiles: 'deny', // gives 403 for rendering a dotfile
   headers:{
     'x-timestamp': Date.now(),
     'x-sent': true

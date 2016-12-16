@@ -1,15 +1,20 @@
 export class HomeService {
-  constructor($log, $window, $rootScope) {
+  constructor($log, $http) {
     'ngInject';
     
     this.$log = $log;
-    this.$window = $window;
-    this.$rootScope = $rootScope;
-    
+    this.$http = $http;
   }
 
   getStats() {
-    //some logic
+      let url = 'http://search.walkover.com/';
+      return this.$http.get(url)
+          .then((data) => {
+              return data.data;
+          }, (error) => {
+              let msg = {error: "not able to get"};
+              return msg;
+          });
   }
 
   
